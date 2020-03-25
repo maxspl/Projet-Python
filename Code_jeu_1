@@ -14,3 +14,8 @@ from random import choice
 liste=("a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,i,u,v,w,y,z" )
 for x in range(9):
     print(choice(liste(1,27), end=" " )
+from random import*
+tab=[a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
+for i in range(0,10):
+    tab.append(randint(1,26))
+print(tab)
