@@ -5,3 +5,8 @@ if Utilisateur in listevoyelles:
  print ("l'entrée est une voyelle")
 elif Utilisateur in listeconsonne: 
  print("l'entrée est une consonne")
+cest pour les lettres
+le programme pour tirer au hasard j'ai fais déjà avec des nombres:
+from random import randint
+for x in range(9):
+    print(randint(1,27), end=" ")
