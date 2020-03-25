@@ -1,3 +1,7 @@
-if...
-blabla..
-hhhh
+listevoyelles = ["a", "e", "i", "o", "u", "u", "y"]
+listeconsonne = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"]
+Utilisateur = input(" Lettre affichée est: ")
+if Utilisateur in listevoyelles: 
+ print ("l'entrée est une voyelle")
+elif Utilisateur in listeconsonne: 
+ print("l'entrée est une consonne")
