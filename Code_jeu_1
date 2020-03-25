@@ -10,3 +10,7 @@ le programme pour tirer au hasard j'ai fais déjà avec des nombres:
 from random import randint
 for x in range(9):
     print(randint(1,27), end=" ")
+from random import choice
+liste=("a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,i,u,v,w,y,z" )
+for x in range(9):
+    print(choice(liste(1,27), end=" " )
