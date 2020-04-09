@@ -83,56 +83,56 @@ def verif_mot_saisi():
         if mot_saisi_list[0]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+            return mot_saisi_list
     if i==1: 
         if mot_saisi_list[1]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+             return mot_saisi_list
     if i==2: 
         if mot_saisi_list[2]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+             return mot_saisi_list
     if i==3:
         if mot_saisi_list[3]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+             return mot_saisi_list
     if i==4:
         if mot_saisi_list[4]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+             return mot_saisi_list
     if i==4:
         if mot_saisi_list[4]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+             return mot_saisi_list
     if i==5:
         if mot_saisi_list[5]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+             return mot_saisi_list
     if i==6:
         if mot_saisi_list[6]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+             return mot_saisi_list
     if i==7:
         if mot_saisi_list[7]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+             return mot_saisi_list
     if i==8:
         if mot_saisi_list[8]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+            return mot_saisi_list
     if i==9:
         if mot_saisi_list[9]==mot_alea[i]:
             identique=1
         else:
-            print("erreur")
+             return mot_saisi_list
 
 
