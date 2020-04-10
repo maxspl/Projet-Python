@@ -71,68 +71,22 @@ def saisie_mot():
 mot_saisi=saisie_mot()
 
 
-def verif_mot_saisi(mot_aléa, mot_saisi):
+def verif_mot_saisi(mot_aléa, mot_saisi): #conversion du  mot saisi en liste
 	mot_saisi_list=list(mot_saisi)
+	return mot_saisi_list
 	print("\n",mot_saisi_list)
 	
-verif_mot_saisi(mot_aléa, mot_saisi)
-def verif_mot_saisi():
+mot_saisi_list=verif_mot_saisi(mot_aléa, mot_saisi)
+
+def verif_mot_saisi(mot_saisi_list,mot_aléa):
+ identique=0
  for i in range (0,9):
-    identique=0
-    if i==0:
-        if mot_saisi_list[0]==mot_alea[i]:
-            identique=1
-        else:
-            return mot_saisi_list
-    if i==1: 
-        if mot_saisi_list[1]==mot_alea[i]:
-            identique=1
-        else:
-             return mot_saisi_list
-    if i==2: 
-        if mot_saisi_list[2]==mot_alea[i]:
-            identique=1
-        else:
-             return mot_saisi_list
-    if i==3:
-        if mot_saisi_list[3]==mot_alea[i]:
-            identique=1
-        else:
-             return mot_saisi_list
-    if i==4:
-        if mot_saisi_list[4]==mot_alea[i]:
-            identique=1
-        else:
-             return mot_saisi_list
-    if i==4:
-        if mot_saisi_list[4]==mot_alea[i]:
-            identique=1
-        else:
-             return mot_saisi_list
-    if i==5:
-        if mot_saisi_list[5]==mot_alea[i]:
-            identique=1
-        else:
-             return mot_saisi_list
-    if i==6:
-        if mot_saisi_list[6]==mot_alea[i]:
-            identique=1
-        else:
-             return mot_saisi_list
-    if i==7:
-        if mot_saisi_list[7]==mot_alea[i]:
-            identique=1
-        else:
-             return mot_saisi_list
-    if i==8:
-        if mot_saisi_list[8]==mot_alea[i]:
-            identique=1
-        else:
-            return mot_saisi_list
-    if i==9:
-        if mot_saisi_list[9]==mot_alea[i]:
-            identique=1
-        else:
-             return mot_saisi_list
-
-
+         for j in range (0,9):
+                 if mot_saisi_list[i]==mot_aléa[j]:
+                         identique=identique+1
+ 			
+ print("\nVoici le nombre de lettres que vous avez réussi à utiliser ", identique)
+ 
+verif_mot_saisi(mot_saisi_list,mot_aléa)
+ 	
+ 
