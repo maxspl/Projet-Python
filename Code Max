@@ -88,5 +88,17 @@ def verif_mot_saisi(mot_saisi_list,mot_aléa):
  print("\nVoici le nombre de lettres que vous avez réussi à utiliser ", identique)
  
 verif_mot_saisi(mot_saisi_list,mot_aléa)
- 	
+
+# fenetre du jeu
+from thinker import*
+
+window = Tk()
+window.title("jeu des lettres")
+window.geometry("1080*720")
+
+champ_label = Label(fenetre, text="bienvenue")
+champ_label.pack()
+
+fenetre.mainloop()
+                    
  
