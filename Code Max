@@ -90,7 +90,7 @@ def verif_mot_saisi(mot_saisi_list,mot_aléa):
 verif_mot_saisi(mot_saisi_list,mot_aléa)
 
 # fenetre du jeu
-from thinker import*
+from thinker import as tk*
 
 window = Tk()
 window.title("jeu des lettres")
