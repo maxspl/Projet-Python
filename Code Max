@@ -90,15 +90,20 @@ def verif_mot_saisi(mot_saisi_list,mot_aléa):
 verif_mot_saisi(mot_saisi_list,mot_aléa)
 
 # fenetre du jeu
-from thinker import as tk*
 
-window = Tk()
-window.title("jeu des lettres")
-window.geometry("1080*720")
+from tkinter import *
 
-champ_label = Label(fenetre, text="bienvenue")
-champ_label.pack()
+# Création de la fenêtre principale (main window)
+Mafenetre = Tk()
 
-fenetre.mainloop()
-                    
+
+Label1 = Label(Mafenetre, text = 'Bienvenue!', fg = 'red')
+Label1.pack()
+
+# Création d'un widget Button (bouton Quitter)
+Bouton1 = Button(Mafenetre, text = 'Quitter', command = Mafenetre.destroy)
+Bouton1.pack()
+
+# Lancement du gestionnaire d'événements
+Mafenetre.mainloop()
  
