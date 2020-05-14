@@ -2,12 +2,11 @@ from math import ceil
 import random
 import sys
 
-
 liste_voyelles = ["a", "e", "i", "o", "u", "y"]
 liste_consonnes = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"]
 liste_lettres= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-
-
+​
+​
 def mot_aléatoire(liste_voyelles,liste_consonnes):
 	mot_aléa=["t", "t", "t", "t", "t", "t", "t", "t", "t"]
 	for i in range(0,3):
@@ -56,31 +55,31 @@ def mot_aléatoire(liste_voyelles,liste_consonnes):
 				identique=1
 				
 		
-
+​
 	print("\nVoici les lettres dispos ",mot_aléa)
 	return mot_aléa
-
+​
 mot_aléa=mot_aléatoire(liste_voyelles,liste_consonnes)
-
+​
 def saisie_mot():
 	#nb_lettres=int(input("Entrez le nombre de lettres que contient votre mot "))
 	mot_saisi=input("\nEntrez votre mot ")
 	print(mot_saisi)
 	return mot_saisi
-
+​
 mot_saisi=saisie_mot()
-
-
+​
+​
 def verif_mot_saisi(mot_aléa, mot_saisi): #conversion du  mot saisi en liste
 	mot_saisi_list=list(mot_saisi)
 	return mot_saisi_list
-	print("\n",mot_saisi_list)
+	print("\n",mot_saisi_list) # ???????????????????????????? return juste avant !!!!!! Donc ligne jamais exécutée
 	
 mot_saisi_list=verif_mot_saisi(mot_aléa, mot_saisi)
-
+​
 def verif_mot_saisi(mot_saisi_list,mot_aléa):
  identique=0
- for i in range (0,9):
+ for i in range (len(mot_saisi)):   # il ne faut pas aller de 0 à 9 mais de 0 à la langueur du mot
          for j in range (0,9):
                  if mot_saisi_list[i]==mot_aléa[j]:
                          identique=identique+1
@@ -88,22 +87,80 @@ def verif_mot_saisi(mot_saisi_list,mot_aléa):
  print("\nVoici le nombre de lettres que vous avez réussi à utiliser ", identique)
  
 verif_mot_saisi(mot_saisi_list,mot_aléa)
+dico=[]                             #
+liste_mots=open("dico.txt","r")    
+mots=liste_mots.readline()          
+while mots != "":                  
+    mots=mots.replace("\n","")      
+    dico.append(mots)               
+    mots=liste_mots.readline()      #
+liste_mots.close()
+​
+mot="maison".upper()
+​
+if mot in dico:
+    print("le mot est valide")
+else:
+    print("le mot n'est pas valide")
+    from tkinter import*
+from random import*
+​
+def voyelle():
+    global lettres_tirees,nbre_lettres
+    if nbre_lettres <=8:                # pas plus de 8 lettres tirées
+        voyelle=choice(liste_voyelles)   # choix au hasard d'une des voyelles de liste_voyelle 
+        lettres_tirees=lettres_tirees+voyelle+" "       # on ajoute la voyelle à la liste des lettres tirées
+        tirage.config(text=lettres_tirees)      # On modifie l'affichage du Label tirage
+        nbre_lettres+=1                 # On ajoute 1 au nbre de lettres tirées
+    
+def consonne():                         # idem que la fonction voyelle() mais avec les consonnes
+    global lettres_tirees,nbre_lettres
+    if nbre_lettres <=8:
+        consonne=choice(liste_consonnes)
+        lettres_tirees=lettres_tirees+consonne+" "
+        tirage.config(text=lettres_tirees)
+        nbre_lettres+=1
+​
+​
+    
+#####################
+#Programme principal#
+#####################
+    
+​
+​
+# initialisation     
+lettres_tirees=""    #lettres tirées     
+nbre_lettres=0       # nombre de lettres tirées
+​
+liste_consonnes=["B","C","D","F","G","H","J","K","L","M","N","P","Q","R","S","T","V","W","X","Z"]
+liste_voyelles=["A","E","I","O","U","Y"]
+​
+# création fenêtre tk()
+fenetre=Tk()
+fenetre.geometry("600x600")
+fenetre.resizable(0,0) # Fenêtre non redimmensionnable
+​
+​
+bouton_voyelle=Button(fenetre, text="voyelle",font=("Helvetica", 20), command=voyelle)      # bouton voyelle
+bouton_voyelle.pack()
+​
+bouton_consonne=Button(fenetre, text="consonne",font=("Helvetica", 20), command=consonne)  # bouton consonne
+bouton_consonne.pack()
+​
+tirage=Label(fenetre,text="_ _ _ _ _ _ _ _", font=("Helvetica", 20))                        # Zone d'affichage des lettres tirées      
+tirage.pack()
+​
+​
+fenetre.mainloop()
+Réduire
 
-# fenetre du jeu
-
-from tkinter import *
-
-# Création de la fenêtre principale (main window)
-Mafenetre = Tk()
 
 
-Label1 = Label(Mafenetre, text = 'Bienvenue!', fg = 'red')
-Label1.pack()
 
-# Création d'un widget Button (bouton Quitter)
-Bouton1 = Button(Mafenetre, text = 'Quitter', command = Mafenetre.destroy)
-Bouton1.pack()
 
-# Lancement du gestionnaire d'événements
-Mafenetre.mainloop()
- 
+
+
+
+
+
