@@ -113,8 +113,8 @@ def voyelle():
         tirage.config(text=lettres_tirees)      # On modifie l'affichage du Label tirage
         nbre_lettres+=1                 # On ajoute 1 au nbre de lettres tirées
     
-def consonne():                         # idem que la fonction voyelle() mais avec les consonnes
-    global lettres_tirees,nbre_lettres
+def consonne():                         # idem que la fonction voyelle() mais avec les consonne
+global lettres_tirees,nbre_lettres
     if nbre_lettres <=8:
         consonne=choice(liste_consonnes)
         lettres_tirees=lettres_tirees+consonne+" "
