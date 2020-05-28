@@ -104,7 +104,7 @@ def verif_mot_saisi(mot_saisi_list,mot_aléa):
                 L3["text"] = "\nBravo vous avez réussi à former un mot avec les lettres données"
         else :
                 print("\nTu comprends pas quoi dans 'utiliser les lettres tirées aléatoirement' ?")
-                L3["text"] = "Tu comprends pas quoi dans 'utiliser les lettres tirées aléatoirement' ?"
+                L3["text"] = "Le mot saisi ne correspond pas aux lettres tirées aléatoirement"
 
         file = open('dico.txt')
         content = file.read()
@@ -116,7 +116,7 @@ def verif_mot_saisi(mot_saisi_list,mot_aléa):
                 L4["text"] = "Le mot est valide, il existe"
         else:
                 print("Le mot n'est pas valide de toute façon")
-                L4["text"] = "Le mot n'est pas valide de toute façon"
+                L4["text"] = "Le mot n'est pas valide"
         L3.pack()
         L4.pack()
 
