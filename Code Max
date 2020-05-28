@@ -1,161 +1,178 @@
 from math import ceil
 import random
 import sys
+from tkinter import*
 
 liste_voyelles = ["a", "e", "i", "o", "u", "y"]
 liste_consonnes = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"]
 liste_lettres= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-​
-​
+mot_aléa=["t", "t", "t", "t", "t", "t", "t", "t", "t"]
+mot_saisi_list=["i"]
+print(mot_saisi_list)
+
 def mot_aléatoire(liste_voyelles,liste_consonnes):
-	mot_aléa=["t", "t", "t", "t", "t", "t", "t", "t", "t"]
-	for i in range(0,3):
-		identique=0
-		mot_aléa[i]=random.choice(liste_voyelles)
-		while identique==0:
-			if i==0:
-				identique=1
-				
-			if i==1:	
-				if mot_aléa[i]==mot_aléa[0]:
-					mot_aléa[i]=random.choice(liste_voyelles)
-				else : 
-					identique=1
-			if i==2:
-				identique=1
-				
-	for i in range(3,9):
-		identique=0
-		mot_aléa[i]=random.choice(liste_consonnes)
-		while identique==0:
-			if i==3:
-				identique=1
-				
-			if i==4:	
-				if mot_aléa[i]==mot_aléa[3]:
-					mot_aléa[i]=random.choice(liste_voyelles)
-				else : 
-					identique=1
-			if i==5:	
-				if mot_aléa[i]==mot_aléa[3] or mot_aléa[i]==mot_aléa[4]  :
-					mot_aléa[i]=random.choice(liste_voyelles)
-				else : 
-					identique=1
-			if i==6:	
-				if mot_aléa[i]==mot_aléa[3] or mot_aléa[i]==mot_aléa[4] or mot_aléa[i]==mot_aléa[5]:
-					mot_aléa[i]=random.choice(liste_voyelles)
-				else : 
-					identique=1
-			if i==7:	
-				if mot_aléa[i]==mot_aléa[3] or mot_aléa[i]==mot_aléa[4] or mot_aléa[i]==mot_aléa[5] or mot_aléa[i]==mot_aléa[6]:
-					mot_aléa[i]=random.choice(liste_voyelles)
-				else : 
-					identique=1		
-			if i==8:	
-				identique=1
-				
-		
-​
-	print("\nVoici les lettres dispos ",mot_aléa)
-	return mot_aléa
-​
-mot_aléa=mot_aléatoire(liste_voyelles,liste_consonnes)
-​
+	#mot_aléa=["t", "t", "t", "t", "t", "t", "t", "t", "t"]
+        global mot_aléa
+        for i in range(0,3):
+                identique=0
+                mot_aléa[i]=random.choice(liste_voyelles)
+                while identique==0:
+                        if i==0:
+                                identique=1
+                        if i==1:
+                                if mot_aléa[i]==mot_aléa[0]:
+                                        mot_aléa[i]=random.choice(liste_voyelles)
+                                else :
+                                        identique=1
+                        if i==2:
+                                identique=1
+
+        for i in range(3,9):
+                identique=0
+                mot_aléa[i]=random.choice(liste_consonnes)
+                while identique==0:
+                        if i==3:
+                                identique=1
+                        if i==4:
+                                if mot_aléa[i]==mot_aléa[3]:
+                                        mot_aléa[i]=random.choice(liste_voyelles)
+                                else :
+                                        identique=1
+                        if i==5:
+                                if mot_aléa[i]==mot_aléa[3] or mot_aléa[i]==mot_aléa[4]  :
+                                        mot_aléa[i]=random.choice(liste_voyelles)
+                                else :
+                                        identique=1
+
+                        if i==6:
+                                if mot_aléa[i]==mot_aléa[3] or mot_aléa[i]==mot_aléa[4] or mot_aléa[i]==mot_aléa[5]:
+                                        mot_aléa[i]=random.choice(liste_voyelles)
+                                else :
+                                        identique=1
+                        if i==7:
+                                if mot_aléa[i]==mot_aléa[3] or mot_aléa[i]==mot_aléa[4] or mot_aléa[i]==mot_aléa[5] or mot_aléa[i]==mot_aléa[6]:
+                                        mot_aléa[i]=random.choice(liste_voyelles)
+                                else :
+                                        identique=1
+                        if i==8:
+                                identique=1
+                                
+        print("\nVoici les lettres dispos ",mot_aléa)
+        LabelResultat.config(text='Mot généré aléatoirement -> ' + str(mot_aléa))
+        return mot_aléa
+	
+#mot_aléa=mot_aléatoire(liste_voyelles,liste_consonnes)
+
 def saisie_mot():
 	#nb_lettres=int(input("Entrez le nombre de lettres que contient votre mot "))
-	mot_saisi=input("\nEntrez votre mot ")
-	print(mot_saisi)
-	return mot_saisi
-​
-mot_saisi=saisie_mot()
-​
-​
-def verif_mot_saisi(mot_aléa, mot_saisi): #conversion du  mot saisi en liste
+	#mot_saisi=input("\nEntrez votre mot ")
+        global mot_saisi_list
+        mot_saisi=Entry1.get()
+        mot_saisi_aff= "Voici le mot saisi : " + mot_saisi
+        L2 = Label(fenetre)
+        L2["text"] = mot_saisi_aff
+        L2.pack()
+        #print(mot_saisi)
+        mot_saisi_list=list(mot_saisi)
+        print(mot_saisi_list)
+        return mot_saisi_list
+
+	
+#mot_saisi_list=saisie_mot()
+
+"""
+def mot_saisi_list(mot_saisi): #conversion du  mot saisi en liste
 	mot_saisi_list=list(mot_saisi)
 	return mot_saisi_list
 	print("\n",mot_saisi_list) # ???????????????????????????? return juste avant !!!!!! Donc ligne jamais exécutée
 	
-mot_saisi_list=verif_mot_saisi(mot_aléa, mot_saisi)
-​
+mot_saisi_list=mot_saisi_list(mot_saisi)
+
+"""
 def verif_mot_saisi(mot_saisi_list,mot_aléa):
- identique=0
- for i in range (len(mot_saisi)):   # il ne faut pas aller de 0 à 9 mais de 0 à la langueur du mot
-         for j in range (0,9):
-                 if mot_saisi_list[i]==mot_aléa[j]:
-                         identique=identique+1
- 			
- print("\nVoici le nombre de lettres que vous avez réussi à utiliser ", identique)
- 
-verif_mot_saisi(mot_saisi_list,mot_aléa)
-dico=[]                             #
-liste_mots=open("dico.txt","r")    
-mots=liste_mots.readline()          
-while mots != "":                  
-    mots=mots.replace("\n","")      
-    dico.append(mots)               
-    mots=liste_mots.readline()      #
-liste_mots.close()
-​
-mot="maison".upper()
-​
-if mot in dico:
-    print("le mot est valide")
-else:
-    print("le mot n'est pas valide")
-    from tkinter import*
-from random import*
-​
-def voyelle():
-    global lettres_tirees,nbre_lettres
-    if nbre_lettres <=8:                # pas plus de 8 lettres tirées
-        voyelle=choice(liste_voyelles)   # choix au hasard d'une des voyelles de liste_voyelle 
-        lettres_tirees=lettres_tirees+voyelle+" "       # on ajoute la voyelle à la liste des lettres tirées
-        tirage.config(text=lettres_tirees)      # On modifie l'affichage du Label tirage
-        nbre_lettres+=1                 # On ajoute 1 au nbre de lettres tirées
-    
-def consonne():                         # idem que la fonction voyelle() mais avec les consonne
-global lettres_tirees,nbre_lettres
-    if nbre_lettres <=8:
-        consonne=choice(liste_consonnes)
-        lettres_tirees=lettres_tirees+consonne+" "
-        tirage.config(text=lettres_tirees)
-        nbre_lettres+=1
-​
-​
-    
+        L3 = Label(fenetre)
+        L4 = Label(fenetre)
+        identique=0
+        non_identique=0
+        mot_saisi=str(mot_saisi_list)
+        for i in range (len(mot_saisi_list)):
+                for j in range (0,9):
+                        if mot_saisi_list[i]==mot_aléa[j]:
+                                identique=identique+1
+        if identique>=len(mot_saisi_list):
+                print("\nBravo vous avez réussi à former un mot avec les lettres données")
+                L3["text"] = "\nBravo vous avez réussi à former un mot avec les lettres données"
+        else :
+                print("\nTu comprends pas quoi dans 'utiliser les lettres tirées aléatoirement' ?")
+                L3["text"] = "Tu comprends pas quoi dans 'utiliser les lettres tirées aléatoirement' ?"
+
+        file = open('dico.txt')
+        content = file.read()
+        #print(file)
+        file.close()
+        StrMot_saisi = "".join(mot_saisi_list)
+        if StrMot_saisi in content:
+                print("Le mot est valide, il existe")
+                L4["text"] = "Le mot est valide, il existe"
+        else:
+                print("Le mot n'est pas valide de toute façon")
+                L4["text"] = "Le mot n'est pas valide de toute façon"
+        L3.pack()
+        L4.pack()
+
+#identique=verif_mot_saisi(mot_saisi_list,mot_aléa)
+
+
+        
 #####################
 #Programme principal#
 #####################
-    
-​
-​
-# initialisation     
-lettres_tirees=""    #lettres tirées     
-nbre_lettres=0       # nombre de lettres tirées
-​
-liste_consonnes=["B","C","D","F","G","H","J","K","L","M","N","P","Q","R","S","T","V","W","X","Z"]
-liste_voyelles=["A","E","I","O","U","Y"]
-​
+
+
+
 # création fenêtre tk()
+
 fenetre=Tk()
 fenetre.geometry("600x600")
 fenetre.resizable(0,0) # Fenêtre non redimmensionnable
-​
-​
-bouton_voyelle=Button(fenetre, text="voyelle",font=("Helvetica", 20), command=voyelle)      # bouton voyelle
-bouton_voyelle.pack()
-​
-bouton_consonne=Button(fenetre, text="consonne",font=("Helvetica", 20), command=consonne)  # bouton consonne
-bouton_consonne.pack()
-​
-tirage=Label(fenetre,text="_ _ _ _ _ _ _ _", font=("Helvetica", 20))                        # Zone d'affichage des lettres tirées      
-tirage.pack()
-​
-​
+
+
+Mot_a = StringVar()
+
+LabelResultat = Label(fenetre, fg ='black', bg ='white')
+LabelResultat.pack(padx = 5, pady = 5,)
+
+bouton_alea=Button(fenetre, text="Les lettres ont été générées automatiquement",font=("Helvetica", 20), command=mot_aléatoire(liste_voyelles,liste_consonnes))      # bouton voyelle
+bouton_alea.pack(side= TOP)
+
+
+#var_texte = StringVar()
+#ligne_texte = Entry(fenetre, textvariable = var_texte, width=30)
+#ligne_texte.pack()
+
+L1 = Label(fenetre, text = "Entrez le mot")
+Entry1=Entry(fenetre)
+button1=Button(fenetre, text = "Cliquez pour saisir", command=saisie_mot)
+button2=Button(fenetre, text = "Cliquez pour vérifier",command=lambda : verif_mot_saisi(mot_saisi_list,mot_aléa))
+L1.pack()
+Entry1.pack()
+button1.pack()
+button2.pack()
+
+BoutonQuitter = Button(fenetre, text ='Quitter', command =fenetre.destroy)
+BoutonQuitter.pack(side = BOTTOM, padx = 5, pady = 5)
+
+#tirage=Label(fenetre,text="_ _ _ _ _ _ _ _", font=("Helvetica", 20))                        # Zone d'affichage des lettres tirées      
+#tirage.pack()
 fenetre.mainloop()
-Réduire
 
 
+
+#bouton_saisie=Button(fenetre, text="Saisir mot",font=("Helvetica", 20), command=saisie_mot())  
+#bouton_saisie.pack()
+
+#saisir=Label(fenetre,text="Veuillez entrer le mot", font=("Helvetica", 20))                        # Zone d'affichage des lettres tirées      
+#saisir.pack()
 
 
 
